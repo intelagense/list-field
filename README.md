@@ -7,12 +7,12 @@ Each direct child directory of root reprensents a different area of study. To pr
 ### Directory tree
 ```
 root/
-├─ codewars/
-│  └─ 8kyu/
-│     ├─ JavaScript/
-│     └─ C++/
-├─ leetCode/
-└─ README.md //You are here
+├── codewars/
+│   └── 8kyu/
+│       ├── javascript
+│       └── c++
+└── leetcode
+README.md //You are here.
 ```
 
 ## Tech Used
