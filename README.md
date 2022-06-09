@@ -9,10 +9,10 @@ Each direct child directory of root reprensents a different area of study. To pr
 root/
 ├── codewars/
 │   └── 8kyu/
-│       ├── javascript
-│       └── c++
-└── leetcode
-README.md //You are here.
+│       ├── JavaScript/
+│       └── C++/
+├── leetCode/
+└── README.md (You are here.)
 ```
 
 ## Tech Used
