@@ -1,17 +1,12 @@
 # list-field
-Public training ground for coding challenges. 
+Public training ground for coding challenges and personal snippits. 
 
 ## What is the purpose?
-Each direct child directory of root reprensents a different area of study. To prevent spoiling, advanced coding challenge solutions and directories are exempted from upload via inclusion in `.gitignore`
+Each direct child directory of root reprensents a different area of study. 
 
 ### Directory tree
 ```
 root/
-├── codewars/
-│   └── 8kyu/
-│       ├── JavaScript/
-│       └── C++/
-├── leetCode/
 └── README.md (You are here.)
 ```
 
