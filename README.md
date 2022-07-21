@@ -2,11 +2,12 @@
 Public training ground for coding challenges and personal snippits. 
 
 ## What is the purpose?
-Each direct child directory of root reprensents a different area of study. 
+Each direct child directory of root reprensents a different area of study or testing. Code that is not quite useful enough to share can survive here. It is mainly for my future personal reference. 
 
 ### Directory tree
 ```
 root/
+├── scripts/ (bash scripts)
 └── README.md (You are here.)
 ```
 
@@ -20,9 +21,7 @@ This files presented in this repo were built using:
 
 ## Optimizations
 Future improvements could include:
-
-* Scripting to automate the process of uploading and titling files.
-* Including searchable site tags as comments in each coding challenge file.
+Better workflow using Gists.
 
 ## Lessons Learned
 Working on coding challenges is a great morning exercise and habit. Having searchable access to a personal repo consisting of real world examples of previously written code can be useful for referencing syntax, functions, and methods.
