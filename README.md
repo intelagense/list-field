@@ -7,6 +7,7 @@ Each direct child directory of root represents a different area of study or test
 ### Directory tree
 ```
 root/
+├── cssbattle.dev/play (my (non highest score) cssbattle solutions)
 ├── scripts/ (bash scripts)
 └── README.md (You are here.)
 ```
