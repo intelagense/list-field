@@ -7,7 +7,8 @@
 //http: github.com/carbonfive/
 //http: github.com
 function domainName(url){
-    let urlEnd = url.replace("//", " ").split().slice(1,1)
+    let urlArr = url.replace("//", " ").replaceAll(".", " ").split(" ").slice(1)
+    let urlEnd = urlArr.slice(urlArr.length - 2, -1)
     console.log(urlEnd)
 }
 domainName("https://www.cnet.com")
