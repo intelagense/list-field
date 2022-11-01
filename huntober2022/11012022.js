@@ -1,0 +1,1 @@
+const stringTransformer = str => str.split('').map(e => e.toLowerCase() === e ? e.toUpperCase() : e.toLowerCase()).join('').split(' ').reverse().join(' ')
