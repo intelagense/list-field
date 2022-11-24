@@ -1,4 +1,4 @@
-# Mermaid Git Graph Demo
+# Mermaid gitGraph Demo
 ```mermaid
 gitGraph
   commit id: "MVP"
