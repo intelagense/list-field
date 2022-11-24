@@ -10,7 +10,7 @@ gitGraph
   branch feature
   checkout feature
   commit id: "Fixed typo in README.md"
-  commit id: "Fixed typo of my name in wiki"
+  commit id: "Fixed typo of my name in Wiki"
   checkout develop
   merge feature
   checkout main
