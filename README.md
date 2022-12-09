@@ -7,7 +7,10 @@ Each direct child directory of root represents a different area of study or test
 ### Directory tree
 ```
 root/
+├── codedex (python solutions)
 ├── cssbattle.dev/play (my (non highest score) cssbattle solutions)
+├── eulerFirst100 (commented solutions in various languages)
+├── huntober2022 (JavaScript coding challenges)
 ├── scripts/ (bash scripts)
 └── README.md (You are here.)
 ```
