@@ -6,6 +6,7 @@
 // Notes
 // Prime... divisible only by itself and one
 // first day: countPrime is complex and doesn't return the correct value. The halveTheWork and isPrime functions appear to be working correctly.
+// TODO https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
 
 function countPrime(value) {
   let count = 0
