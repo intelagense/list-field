@@ -1,8 +1,10 @@
-// What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
+// Solved: returns correct answer in under 5 seconds
+// 
+// issues:
+// completly missed including half of the diagonals when setting up the inital parameters
+// accessing the correct values in the array without type errors
 
-/* columns
-00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19
-*/
+// What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
 
 // Input is the grid
 // Return the product of 4 adjacent numbers
@@ -10,6 +12,8 @@
 // 00 values invalidate the results including them.. if the first value is 00 skip that loop
 //
 // Inverses are identical so LR == RL, UD == DU
+// -correction for diagonals.. there are two sets of diagonls running in opposite directions.
+//
 // Numbers are bound by the edges of the grid which is 20x20
 // Very easy to get LR values
 // Mildly easy to get UD values
@@ -17,8 +21,9 @@
 //
 // create 2d array of numbers and loop through all of them
 // - correction loop through the 16x16 index of them
+// - correction again... loop through all of them
 //
-// if 00 continue loop
+// if 00 "continue" loop
 //  
 // Xcreate 3 loops()
 // Xfirst loop checks 3 spaces to the right and stops at column index 16
@@ -26,26 +31,61 @@
 // Xthird loop checks 3 spaces diagonal and stops at 
 // Xno create one loop and check 3 spaces right, down, diagonal stoping at row index 16, col index 16, and row-col index 16 respectively 
 //
-// loop through 17x17 area of the 20x20 array
-// create loop and check 3 spaces right, down, diagonal
-// push values to new array
-// get max of new array
-//
-// optimizations? ideas? keep last value in memory and only push new value if it is higher. this will limit the size of the final array
+// Xloop through 17x17 area of the 20x20 array
+// -this is a problem because it only accounts for the diagonals being out of bounds
+// Xcreate loop and check 3 spaces right, down, diagonal
+// hard code the 4 directions needed and use conditionals to check for index out of bounds that results in type error (i.e. arr[20][0])
+// reassign the four values as needed
+// return the max value 
+// check the max against the previous high value
+// return the highest value overall
+// 
+// optimizations? ideas? keep last value in memory and only push new value if it is higher. this will limit the size of the final array -done
 
-let num = 0
+let position = 0 // Value of current position in array loop
+let highValue = 0 // Highest value so far
+let newValue = 0 // Temporary value to check against highValue
+
 function checkGrid(grid){
   const arr = construct2dArray(grid)
-  
-  for (let i = 0; i < 17; i++){
-    for (let j = 0; j < 17; j++){
-      console.log(arr[i][j])
+
+  for (let i = 0; i < 20; i++){
+    for (let j = 0; j < 20; j++){
+      position = arr[i][j]
+      
+      if (position == 0) {continue} //bypasses certain 0 product
+      newValue = checkValues(position, arr, i, j)
+      
+      if (highValue < newValue){
+        highValue = newValue
+      }
     }
   }
   
-return num
+return highValue
 }
 
+function checkValues(position, arr, i, j){
+  let colValue = 0 
+  let rowValue = 0
+  let downDiagValue = 0
+  let upDiagValue = 0
+  
+  if (i+3 < 20){
+    colValue = (position * arr[i+1][j] * arr[i+2][j] * arr[i+3][j])
+  }
+  rowValue = (position * arr[i][j+1] * arr[i][j+2] * arr[i][j+3])
+  if (i+3 < 20){
+    downDiagValue = (position * arr[i+1][j+1] * arr[i+2][j+2] * arr[i+3][j+3])
+    if (i >= 3){
+      upDiagValue = (position * arr[i+1][j-1] * arr[i+2][j-2] * arr[i+3][j-3])
+    }
+  }
+
+  return Math.max(rowValue, colValue, downDiagValue, upDiagValue)
+}
+
+//converts the string input into a 2d array
 function construct2dArray(str){
   const array = []
   for (x of str.split("\n")){
@@ -55,7 +95,8 @@ function construct2dArray(str){
 }
 
 
-const grid = `08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
+const grid = 
+`08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
 81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65
 52 70 95 23 04 60 11 42 69 24 68 56 01 32 56 71 37 02 36 91
