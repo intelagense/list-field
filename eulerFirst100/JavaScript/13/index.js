@@ -1,21 +1,14 @@
 function getTenSum() {
-    const arr = num.split("\n")
-    const sum = arr.reduce((acc, c) => Number(acc) + Number(c), 0)
-    let sumString = sum.toString().split('.').join('')
-    let value = [];
-
-    console.log(sumString)
-
-    // const answer = sum.split('')
-
-    for (let i = 0; i < 10; i++) {
-        value.push(sumString[i])
-    }
-    console.log(value.join(''))
+    const sum = num.split("\n")
+        .reduce((acc, c) => acc + +c, 0)
+        .toString()
+        .split('.')
+        .join('')
+    console.log(sum.slice(0, 10))
 }
 
-
 //Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.
+//5537376230
 const num = `37107287533902102798797998220837590246510135740250
 46376937677490009712648124896970078050417018260538
 74324986199524741059474233309513058123726617309629
