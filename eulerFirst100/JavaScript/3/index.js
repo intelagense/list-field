@@ -5,25 +5,19 @@
 
 // Notes
 // Prime... divisible only by itself and one
-// first day: countPrime is complex and doesn't return the correct value. The halveTheWork and isPrime functions appear to be working correctly.
-// TODO https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+// first attempt: countPrime is complex and doesn't return the correct value. The halveTheWork and isPrime functions appear to be working correctly.
+// second attempt: was "halving the work" too many times
+// TODO https://en.wikipedia.org/wiki/Sieve_of_Era;tosthenes
 
 function countPrime(value) {
-  let count = 0
-  let n = halveTheWork(value)
 
-  for (let i = n; i > 0; i--) {
-    if (value % i === 0) {
-      //60 % 30
-      for (let j = halveTheWork(i); j > 0; j--) {
-        //30 / 1
-        if (isPrime(j)) {
-          return j
-        }
-      }
+  for (let i = value; i > 0; i--) {
+    if (isPrime(i)) {
+      return i
     }
   }
 }
+
 
 //Splits the number if even or adds one then splits if odd. 
 const halveTheWork = (num) => (num % 2 === 0) ? num / 2 : (num + 1) / 2;
@@ -60,6 +54,9 @@ function isPrime(num) {
 
 // console.log(countPrime(13195)) //outputs 1319?? 
 
-for (let i = 0; i < 100; i++) {
-  console.log(isPrime(i), i)
-}
+// //tests the functions
+// for (let i = 0; i < 100; i++) {
+//   console.log(isPrime(i), i)
+// }
+console.log(countPrime(600851475143), performance.now())
+// console.log(countPrime(1000), performance.now())
